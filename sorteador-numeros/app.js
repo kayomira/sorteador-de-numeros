@@ -9,6 +9,11 @@ function sortear(){
     let ate = parseInt(document.getElementById("ate").value);
     let bug = de + ate
 
+    if (de >= ate) {
+        exibirTextoNaTela("resultado","Insira os valores corretamente")
+        return
+    }
+
     let sorteados = [];
     let numero;
 
@@ -20,7 +25,7 @@ function sortear(){
         } if (bug < quantidade) {
             alert ("Este numero não é valido");
             reiniciar();
-            break;
+            return;
         }
         
         sorteados.push(numero);
@@ -37,8 +42,8 @@ function alterarStatusBotao() {
         botao.classList.add("container__botao");
 
     } else {
-        botao.classList.remove("container__botao-desabilitado");
-        botao.classList.add("container__botao");
+        botao.classList.remove("container__botao");
+        botao.classList.add("container__botao-desabilitado");
     }
 }
 
